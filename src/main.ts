@@ -11,15 +11,14 @@ console.info("App started")
 if (environment.production) {
   enableProdMode();
 }
-
-//   if (Office) {
-//   // when Office has initalized, manually bootstrap the app
-//   Office.initialize = function () {
-//     console.debug("initializing within Office")
-//     platformBrowserDynamic().bootstrapModule(AppModule);
-// //    angular.bootstrap(document.body, ['pixa-point']);
-//   };
-// } else {
-  console.info("initializing outside of office")
+declare var Office: any;
+if (typeof Office !== 'undefined') {
+  // when Office has initalized, manually bootstrap the app
+  Office.initialize = function () {
+    console.debug("initializing within Office")
+    platformBrowserDynamic().bootstrapModule(AppModule);
+  };
+} else {
+  console.debug("initializing outside of office")
   platformBrowserDynamic().bootstrapModule(AppModule);
-// }
+}

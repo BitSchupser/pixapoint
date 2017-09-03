@@ -1,9 +1,10 @@
-<h1>
-  <input [(ngModel)]='searchString' type="text" />
-  <button (click)='search()'>Suchen</button>
-  <ul *ngFor='let result of searchResults'>
-    <li>
-        <app-search-result [model]="result"></app-search-result>
-    </li>
-  </ul>
-</h1>
+<h1>Pixabay Durchsuchen</h1>
+<form>
+  <input [(ngModel)]='searchString' type="text" name='searchString'/>
+  <button type="submit" (click)='search()'>Suchen</button>
+</form>
+<ul *ngFor='let result of searchResults'>
+  <li>
+    <app-search-result [model]="result"></app-search-result>
+  </li>
+</ul>

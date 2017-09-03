@@ -11,6 +11,7 @@
     <title>
         PixaPoint
     </title>
+    <base href="/">
 
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.debug.js"></script>
@@ -19,12 +20,17 @@
     <link rel="stylesheet" href="node_modules/angular/angular-csp.css" />
     <link rel="stylesheet" href="node_modules/office-ui-fabric-js/dist/css/fabric.min.css" />
     <link rel="stylesheet" href="node_modules/office-ui-fabric-js/dist/css/fabric.components.css" />
+    <!-- <script type="text/javascript" src="node_modules/core-js/client/shim.min.js"></script> -->
 
     <!-- CDN -->
     <!-- For the Office UI Fabric, go to http://aka.ms/office-ui-fabric to learn more. -->
     <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.min.css" />-->
     <!--<link rel="stylesheet" href="https://static2.sharepointonline.com/files/fabric/office-ui-fabric-js/1.2.0/css/fabric.components.min.css" />-->
 
+    <!-- <script type="text/javascript" src="https://unpkg.com/systemjs@0.20.18/dist/system.js"></script>
+    <script>
+      SystemJS.import('main.js');
+    </script> -->
     <!-- Template styles -->
     <link href="app.css" rel="stylesheet" type="text/css" />
 </head>
@@ -52,6 +58,7 @@
                 <span class="ms-font-m ms-fontColor-neutralPrimary">Create and visualize like a pro</span>
             </li>
         </ul>
+        <app-root></app-root>
         <br />
         <br />
         <p class="ms-font-l">Modify the source files, then click <b>Run</b>.</p>
@@ -62,11 +69,10 @@
     </main>
 
     <script type="text/javascript" src="node_modules/core-js/client/core.js"></script>
-    <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
     <script type="text/javascript" src="node_modules/office-ui-fabric-js/dist/js/fabric.js"></script>
 
-    <script type="text/javascript" src="app.js"></script>
+    <!-- <script type="text/javascript" src="polyfills.js"></script> -->
+    <!-- <script type="text/javascript" src="main.js"></script> -->
 </body>
 
 </html>

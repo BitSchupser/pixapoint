@@ -1,3 +1,9 @@
 <h1>
-  {{title}}
+  <input [(ngModel)]='searchString' type="text" />
+  <button (click)='search()'>Suchen</button>
+  <ul *ngFor='let result of searchResults'>
+    <li>
+        <app-search-result [model]="result"></app-search-result>
+    </li>
+  </ul>
 </h1>

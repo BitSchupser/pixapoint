@@ -1,8 +1,7 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "project": {
-    "name": "pixapoint",
-    "ejected": true
+    "name": "pixapoint"
   },
   "apps": [
     {
@@ -20,9 +19,13 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "styles.css",
+        "../node_modules/office-ui-fabric-js/dist/css/fabric.min.css",
+        "../node_modules/office-ui-fabric-js/dist/css/fabric.components.min.css"
       ],
-      "scripts": [],
+      "scripts": ["../node_modules/core-js/client/core.js",
+        "../node_modules/office-ui-fabric-js/dist/js/fabric.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

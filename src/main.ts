@@ -11,14 +11,20 @@ console.info("App started")
 if (environment.production) {
   enableProdMode();
 }
+
 declare var Office: any;
+
+function bootstrap() {
+  platformBrowserDynamic().bootstrapModule(AppModule);
+}
+
 if (typeof Office !== 'undefined') {
-  // when Office has initalized, manually bootstrap the app
   Office.initialize = function () {
     console.debug("initializing within Office")
-    platformBrowserDynamic().bootstrapModule(AppModule);
+    bootstrap();
   };
-} else {
-  console.debug("initializing outside of office")
-  platformBrowserDynamic().bootstrapModule(AppModule);
+}
+else {
+  console.debug("initializing outside of office");
+  bootstrap();
 }

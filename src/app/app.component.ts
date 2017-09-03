@@ -1,6 +1,7 @@
 import { SearchResult } from './service/search-result';
 import { ImageQueryService } from './service/image-query.service';
 import { Component } from '@angular/core';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'app-root',
@@ -16,7 +17,8 @@ export class AppComponent {
 
   search(): void {
     this.imageQuery.search(this.searchString)
-    .subscribe(sr => this.searchResults = sr);
+    .subscribe(sr => this.searchResults = sr,
+       err => console.error(err));
   }
 
 }

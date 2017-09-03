@@ -1,3 +1,4 @@
+import { Config } from './config';
 import { ImageQueryService } from './service/image-query.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -17,7 +18,7 @@ import { SearchResultComponent } from './search-result/search-result.component';
     FormsModule,
     HttpModule
   ],
-  providers: [ImageQueryService],
+  providers: [ImageQueryService, Config],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

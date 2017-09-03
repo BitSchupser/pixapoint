@@ -18,14 +18,8 @@
       "tsconfig": "tsconfig.app.json",
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
-      "styles": [
-        "styles.css",
-        "../node_modules/office-ui-fabric-js/dist/css/fabric.min.css",
-        "../node_modules/office-ui-fabric-js/dist/css/fabric.components.min.css"
-      ],
-      "scripts": ["../node_modules/core-js/client/core.js",
-        "../node_modules/office-ui-fabric-js/dist/js/fabric.js"
-      ],
+      "styles": ["styles.css"],
+      "scripts": [],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

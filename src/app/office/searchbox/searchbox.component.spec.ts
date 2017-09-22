@@ -1,5 +1,5 @@
+import { NO_ERRORS_SCHEMA, trigger } from '@angular/core';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { SearchboxComponent } from './searchbox.component';
 
 describe('SearchboxComponent', () => {
@@ -8,7 +8,8 @@ describe('SearchboxComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchboxComponent ]
+      declarations: [ SearchboxComponent ],
+      schemas: [NO_ERRORS_SCHEMA]
     })
     .compileComponents();
   }));
@@ -19,7 +20,13 @@ describe('SearchboxComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should be created', () => {
-    expect(component).toBeTruthy();
+  it('emmits the perfromSearch event onPerformSearch', (done) => {
+    const expectedPayload = 'epxected payload';
+    component.performSearch.subscribe((pl: string) => {
+      expect(pl).toBe(expectedPayload);
+      done();
+    });
+    component.queryString = expectedPayload;
+    component.onPerformSearch();
   });
 });

@@ -14,16 +14,16 @@ export class ImageQueryService {
 
   search(queryString: string): Observable<SearchResult[]> {
 
-    return this.http.get(this.baseURL + '&q="' + queryString + '"', {responseType: 'json'})
+    return this.http.get(this.baseURL + '&q="' + queryString + '"&response_group=high_resolution', {responseType: 'json'})
       .map(result => this.createSearchResults(result));
   }
 
   createSearchResults(apiResponse: any): any {
-    return apiResponse.hits.map(r => new SearchResult(r.previewURL));
+    return apiResponse.hits.map(r => new SearchResult(r.previewURL, r.webformatURL));
   }
 
   getAsBase64(toDownload: SearchResult): Observable<string> {
-    const url = toDownload.thumbNailURL;
+    const url = toDownload.imageURL;
 
      return this.http.get(url, {responseType: 'arraybuffer'})
     .map(result => {

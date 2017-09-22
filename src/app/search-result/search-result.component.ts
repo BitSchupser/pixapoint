@@ -14,7 +14,6 @@ export class SearchResultComponent implements OnInit {
 
   @Input()
   model: SearchResult;
-  public debugstring = 'debug';
 
   previewURL() {
     return this.model.thumbNailURL;

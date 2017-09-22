@@ -1,8 +1,7 @@
-<h1><a href="https://pixabay.com/" target="_blank">Pixabay Images</a></h1>
-<form>
-  <input [(ngModel)]='searchString' type="text" name='searchString'/>
-  <button type="submit" (click)='search()'>Suchen</button>
-</form>
+<h1 class='ms-font-xxl'><a href="https://pixabay.com/" target="_blank">Pixabay Images</a></h1>
+
+<app-office-searchbox (performSearch)="search($event)"></app-office-searchbox>
+
 <ul *ngFor='let result of searchResults'>
   <li>
     <app-search-result [model]="result"></app-search-result>

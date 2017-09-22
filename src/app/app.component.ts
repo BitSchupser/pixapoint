@@ -1,3 +1,4 @@
+import * as querystring from 'querystring';
 import { SearchResult } from './service/search-result';
 import { ImageQueryService } from './service/image-query.service';
 import { Component } from '@angular/core';
@@ -9,14 +10,13 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  searchString: string;
   searchResults: SearchResult[];
 
   constructor(private imageQuery: ImageQueryService) {
   }
 
-  search(): void {
-    this.imageQuery.search(this.searchString)
+  search(queryString: string): void {
+    this.imageQuery.search(queryString)
     .subscribe(sr => this.searchResults = sr,
        err => console.error(err));
   }

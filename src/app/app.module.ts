@@ -9,11 +9,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SearchResultComponent } from './search-result/search-result.component';
+import { SearchboxComponent } from './office/searchbox/searchbox.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SearchResultComponent
+    SearchResultComponent,
+    SearchboxComponent
   ],
   imports: [
     BrowserModule,

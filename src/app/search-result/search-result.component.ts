@@ -2,7 +2,6 @@ import { OfficeService } from './../service/office.service';
 import { ImageQueryService } from '../service/image-query.service';
 import { SearchResult } from '../service/search-result';
 import { Component, Input, OnInit } from '@angular/core';
-// import { Office } from 'office-js';
 
 
 @Component({
@@ -14,6 +13,8 @@ export class SearchResultComponent implements OnInit {
 
   @Input()
   model: SearchResult;
+  get width() { return this.model.width; }
+  get height() { return this.model.height; }
 
   previewURL() {
     return this.model.thumbNailURL;

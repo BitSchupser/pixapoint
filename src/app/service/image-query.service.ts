@@ -19,7 +19,7 @@ export class ImageQueryService {
   }
 
   createSearchResults(apiResponse: any): any {
-    return apiResponse.hits.map(r => new SearchResult(r.previewURL, r.webformatURL));
+    return apiResponse.hits.map(r => new SearchResult(r.previewURL, r.webformatURL, r.webformatWidth, r.webformatHeight));
   }
 
   getAsBase64(toDownload: SearchResult): Observable<string> {

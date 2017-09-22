@@ -1,23 +1,33 @@
+import { Base64coder } from './base64coder';
 import { Config } from './../config';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subject } from 'rxjs/Rx';
 import { SearchResult } from './search-result';
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient, } from '@angular/common/http';
 
 @Injectable()
 export class ImageQueryService {
 
   private baseURL = 'https://pixabay.com/api/?key=' + this.config.pixabayApiKey;
 
-  constructor(private config: Config, private http: Http) { }
+  constructor(private config: Config, private http: HttpClient, private base64: Base64coder) { }
 
   search(queryString: string): Observable<SearchResult[]> {
 
-    return this.http.get(this.baseURL + '&q="' + queryString + '"')
-      .map(res => this.createSearchResults(res.json()));
+    return this.http.get(this.baseURL + '&q="' + queryString + '"', {responseType: 'json'})
+      .map(result => this.createSearchResults(result));
   }
 
   createSearchResults(apiResponse: any): any {
     return apiResponse.hits.map(r => new SearchResult(r.previewURL));
+  }
+
+  getAsBase64(toDownload: SearchResult): Observable<string> {
+    const url = toDownload.thumbNailURL;
+
+     return this.http.get(url, {responseType: 'arraybuffer'})
+    .map(result => {
+      return this.base64.encode(result);
+    });
   }
 }

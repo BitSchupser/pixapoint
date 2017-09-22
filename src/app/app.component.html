@@ -2,8 +2,22 @@
 
 <app-office-searchbox (performSearch)="search($event)"></app-office-searchbox>
 
-<ul *ngFor='let result of searchResults'>
-  <li>
+<ul *ngFor='let result of searchResults' class='ms-List'>
+  <li class="ms-ListItem ms-ListItem--image">
     <app-search-result [model]="result"></app-search-result>
   </li>
 </ul>
+
+<script type="text/javascript">
+  var ListElements = document.querySelectorAll(".ms-List");
+  for (var i = 0; i < ListElements.length; i++) {
+    new fabric['List'](ListElements[i]);
+  }
+</script>
+
+<script type="text/javascript">
+  var ListItemElements = document.querySelectorAll(".ms-ListItem");
+  for (var i = 0; i < ListItemElements.length; i++) {
+    new fabric['ListItem'](ListItemElements[i]);
+  }
+</script>

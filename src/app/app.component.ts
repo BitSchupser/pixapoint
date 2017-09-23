@@ -11,8 +11,9 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  private result: SearchResultCollection;
+  private result: SearchResultCollection = undefined;
 
+  get searchPerformed(): boolean { return this.result !== undefined; }
   get hasPreviousPage(): boolean { return this.result.hasPreviousPage(); }
   get hasNextPage(): boolean { return this.result.hasNextPage(); }
   get searchResults(): SearchResult[] { return this.result.results; }

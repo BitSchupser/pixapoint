@@ -11,6 +11,9 @@ export class SearchResultCollection {
   }
 
   hasNextPage(): boolean {
+    if (this.results == null) {
+      return false;
+    }
     const lastVisibleItemNumber = this.resultsPerPage * (this.page - 1) + this.results.length;
     return lastVisibleItemNumber  < this.totalResults;
   }

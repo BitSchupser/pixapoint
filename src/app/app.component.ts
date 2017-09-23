@@ -16,6 +16,7 @@ export class AppComponent {
   get hasPreviousPage(): boolean { return this.result.hasPreviousPage(); }
   get hasNextPage(): boolean { return this.result.hasNextPage(); }
   get searchResults(): SearchResult[] { return this.result.results; }
+  get totalResults(): number { return this.result.totalResults; }
 
   constructor(private imageQuery: ImageQueryService) {
   }

@@ -1,7 +1,8 @@
+import { SearchResultCollection } from './service/search-result-collection';
 import * as querystring from 'querystring';
 import { SearchResult } from './service/search-result';
 import { ImageQueryService } from './service/image-query.service';
-import { Component } from '@angular/core';
+import { Component, PACKAGE_ROOT_URL } from '@angular/core';
 import 'rxjs/add/operator/map';
 
 @Component({
@@ -10,15 +11,29 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  searchResults: SearchResult[];
+  private result: SearchResultCollection;
+
+  get hasPreviousPage(): boolean { return this.result.hasPreviousPage(); }
+  get hasNextPage(): boolean { return this.result.hasNextPage(); }
+  get searchResults(): SearchResult[] { return this.result.results; }
 
   constructor(private imageQuery: ImageQueryService) {
   }
 
-  search(queryString: string): void {
-    this.imageQuery.search(queryString)
-    .subscribe(sr => this.searchResults = sr,
-       err => console.error(err));
+  search(queryString: string, page: number = 1): void {
+    this.imageQuery.search(queryString, page)
+      .subscribe(sr => {
+        this.result = sr;
+      },
+      err => console.error(err));
+  }
+
+  gotoNextPage() {
+    this.search(this.result.queryString, this.result.page + 1);
+  }
+
+  gotoPreviousPage() {
+    this.search(this.result.queryString, this.result.page - 1);
   }
 
 }

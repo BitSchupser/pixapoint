@@ -1,8 +1,9 @@
 import { SearchResult } from './search-result';
 export class SearchResultCollection {
   constructor(public results: SearchResult[],
+    public queryString: string,
     private totalResults: number,
-    private page: number,
+    public page: number,
     private resultsPerPage: number) {}
 
   hasPreviousPage(): boolean {

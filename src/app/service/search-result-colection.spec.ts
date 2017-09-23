@@ -5,14 +5,14 @@ describe('SearchResultCollection', () => {
 
   it('has no previous page when on first page', () => {
     const page = 1;
-    const sut = new SearchResultCollection([], 123, page, 20);
+    const sut = new SearchResultCollection([], 'query', 123, page, 20);
 
     expect(sut.hasPreviousPage()).toBeFalsy();
   });
 
   it('has a previous page when on second page', () => {
     const page = 2;
-    const sut = new SearchResultCollection([], 123, page, 20);
+    const sut = new SearchResultCollection([], 'query', 123, page, 20);
 
     expect(sut.hasPreviousPage()).toBeTruthy();
   });
@@ -21,7 +21,7 @@ describe('SearchResultCollection', () => {
     const page = 2;
     const resultsPerPage = 20;
     const totalResults = 100;
-    const sut = new SearchResultCollection([], totalResults, page, resultsPerPage);
+    const sut = new SearchResultCollection([], 'query', totalResults, page, resultsPerPage);
 
     expect(sut.hasNextPage()).toBeTruthy();
   });
@@ -31,7 +31,7 @@ describe('SearchResultCollection', () => {
     const resultsPerPage = 20;
     const totalResults = 81;
     const results = [new SearchResult('abc', 'xyz', 123, 456)];
-    const sut = new SearchResultCollection(results, totalResults, page, resultsPerPage);
+    const sut = new SearchResultCollection(results, 'query', totalResults, page, resultsPerPage);
 
     expect(sut.hasNextPage()).toBeFalsy();
   });

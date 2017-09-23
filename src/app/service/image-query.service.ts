@@ -18,10 +18,6 @@ export class ImageQueryService {
       .map(result => this.createSearchResults(result));
   }
 
-  createSearchResults(apiResponse: any): any {
-    return apiResponse.hits.map(r => new SearchResult(r.previewURL, r.webformatURL, r.webformatWidth, r.webformatHeight));
-  }
-
   getAsBase64(toDownload: SearchResult): Observable<string> {
     const url = toDownload.imageURL;
 
@@ -29,5 +25,9 @@ export class ImageQueryService {
     .map(result => {
       return this.base64.encode(result);
     });
+  }
+
+  private createSearchResults(apiResponse: any): any {
+    return apiResponse.hits.map(r => new SearchResult(r.previewURL, r.webformatURL, r.webformatWidth, r.webformatHeight));
   }
 }

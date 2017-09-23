@@ -1,11 +1,13 @@
 <app-office-searchbox (performSearch)="search($event)"></app-office-searchbox>
 
-<p class='ms-font-m'>
-Images from <a href="https://pixabay.com/" target="_blank">Pixabay</a>
-</p>
+<div *ngIf='searchResults.length > 0'>
+  <p class='ms-font-m'>
+  Images from <a href="https://pixabay.com/" target="_blank">Pixabay</a>
+  </p>
 
-<ul *ngFor='let result of searchResults'>
-  <li>
-    <app-search-result [model]="result"></app-search-result>
-  </li>
-</ul>
+  <ul *ngFor='let result of searchResults'>
+    <li>
+      <app-search-result [model]="result"></app-search-result>
+    </li>
+  </ul>
+</div>

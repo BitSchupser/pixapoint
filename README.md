@@ -7,6 +7,24 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Development
 
+## Development environment
+
+1. Create a file src/app/private.config.ts with following content:
+
+```
+export class PrivateConfig
+{
+    // get your api key from https://pixabay.com/api/docs/
+    static readonly pixabayApiKey = 'your-api-key';
+}
+```
+
+2. Set up the standard office development environment as shown at https://dev.office.com/docs/add-ins/testing/create-a-network-shared-folder-catalog-for-task-pane-and-content-add-ins
+
+3. Start server with ng serve --watch --ssl
+
+4. Use F12Chooser (located in Windows 10 at C:\Windows\SysWOW64\F12\F12Chooser.exe) for debugging.
+
 ## Development server
 
 Run `ng serve --watch --ssl` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.

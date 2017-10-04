@@ -5,11 +5,11 @@
   Found {{ totalResults }} images at <a href="https://pixabay.com/" target="_blank">Pixabay</a>
   </p>
 
-  <ul *ngFor='let result of searchResults'>
-    <li>
+  <div>
+    <div *ngFor='let result of searchResults' class='search-result'>
       <app-search-result [model]="result"></app-search-result>
-    </li>
-  </ul>
+    </div>
+  </div>
   <div>
 
     <button [disabled]="!hasPreviousPage" (click)="gotoPreviousPage()"><i class="ms-Icon ms-Icon--TriangleSolidLeft12" aria-hidden="true"></i></button>

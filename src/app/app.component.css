@@ -1,3 +1,5 @@
 .search-result {
   margin: 5px;
+  display: inline-block;
+  text-align: center;
 }

@@ -18,6 +18,10 @@ export class SearchResultComponent implements OnInit {
     return this.model.thumbNailURL;
   }
 
+  user() {
+    return this.model.user;
+  }
+
   constructor(private images: ImageQueryService, private office: OfficeService) { }
 
   ngOnInit() {

@@ -1,0 +1,13 @@
+.thumbnail {
+  position: relative;
+  display: inline-block;
+}
+
+.image-desciption {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  color: black;
+  background-color: rgba(255, 255, 255, 0.5);
+  text-align: center
+}

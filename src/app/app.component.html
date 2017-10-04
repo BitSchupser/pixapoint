@@ -10,8 +10,7 @@
       <app-search-result [model]="result"></app-search-result>
     </div>
   </div>
-  <div>
-
+  <div class='paging'>
     <button [disabled]="!hasPreviousPage" (click)="gotoPreviousPage()"><i class="ms-Icon ms-Icon--TriangleSolidLeft12" aria-hidden="true"></i></button>
     <button [disabled]="!hasNextPage" (click)="gotoNextPage()"><i class="ms-Icon ms-Icon--TriangleSolidRight12" aria-hidden="true"></i></button>
   </div>

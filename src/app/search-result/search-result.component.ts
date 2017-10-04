@@ -13,8 +13,6 @@ export class SearchResultComponent implements OnInit {
 
   @Input()
   model: SearchResult;
-  get width() { return this.model.width; }
-  get height() { return this.model.height; }
 
   previewURL() {
     return this.model.thumbNailURL;

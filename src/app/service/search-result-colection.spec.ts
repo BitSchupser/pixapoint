@@ -30,7 +30,7 @@ describe('SearchResultCollection', () => {
     const page = 5;
     const resultsPerPage = 20;
     const totalResults = 81;
-    const results = [new SearchResult('abc', 'xyz', 123, 456)];
+    const results = [new SearchResult('abc', 'xyz')];
     const sut = new SearchResultCollection(results, 'query', totalResults, page, resultsPerPage);
 
     expect(sut.hasNextPage()).toBeFalsy();

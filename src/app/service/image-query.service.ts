@@ -30,7 +30,7 @@ export class ImageQueryService {
   }
 
   private createSearchResults(apiResponse: any, page: number, resultsPerPage: number, queryString: string): SearchResultCollection {
-    const searchResults = apiResponse.hits.map(r => new SearchResult(r.previewURL, r.webformatURL, r.webformatWidth, r.webformatHeight));
+    const searchResults = apiResponse.hits.map(r => new SearchResult(r.previewURL, r.webformatURL));
     const totalResults = apiResponse.total;
     return new SearchResultCollection(searchResults, queryString, totalResults, page, resultsPerPage);
   }

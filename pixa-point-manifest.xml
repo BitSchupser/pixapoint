@@ -124,14 +124,14 @@
       </bt:Urls>
       <!-- ShortStrings max characters==125. -->
       <bt:ShortStrings>
-        <bt:String id="PP.TaskpaneButton.Label" DefaultValue="Show Taskpane" />
-        <bt:String id="PP.Group1Label" DefaultValue="Commands Group" />
-        <bt:String id="PP.GetStarted.Title" DefaultValue="Get started with your sample add-in!" />
+        <bt:String id="PP.TaskpaneButton.Label" DefaultValue="Pixabay Images" />
+        <bt:String id="PP.Group1Label" DefaultValue="PixaPoint" />
+        <bt:String id="PP.GetStarted.Title" DefaultValue="Insert free images from pixabay.com!" />
       </bt:ShortStrings>
       <!-- LongStrings max characters==250. -->
       <bt:LongStrings>
-        <bt:String id="PP.TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane" />
-        <bt:String id="PP.GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started." />
+        <bt:String id="PP.TaskpaneButton.Tooltip" DefaultValue="Click to search for images on Pixabay" />
+        <bt:String id="PP.GetStarted.Description" DefaultValue="The Pixabay add-in loaded succesfully. Go to the INSERT tab and click the 'Pixabay Images' button to search for images." />
       </bt:LongStrings>
     </Resources>
   </VersionOverrides>

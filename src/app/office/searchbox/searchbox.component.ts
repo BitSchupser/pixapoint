@@ -17,7 +17,7 @@ export class SearchboxComponent implements OnInit {
   }
 
   public onPerformSearch() {
-    console.info('searching: ' + this.queryString)
+    console.info('searching: ' + this.queryString);
     this.performSearch.emit(this.queryString);
   }
 }

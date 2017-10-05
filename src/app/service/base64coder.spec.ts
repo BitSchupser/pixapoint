@@ -4,19 +4,7 @@ import {Base64coder} from './base64coder';
 import { toByteArray } from 'base64-js';
 
 describe('Base64coder', () => {
-  let sut = new Base64coder();
-
-  beforeEach(() => TestBed.configureTestingModule({
-    imports: [HttpClientModule]
-  }));
-
-  it('should be able to encode a given image', () => {
-    const input = toByteArray(base64img);
-    const result = sut.encode(input.buffer);
-
-    expect(result).toBe(base64img);
-
-  });
+  const sut = new Base64coder();
 
   const base64img = `/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgICAgMCAgIDAwMDBAYEBAQEBAgGBgUGCQgKCgkI
     CQkKDA8MCgsOCwkJDRENDg8QEBEQCgwSExIQEw8QEBD/2wBDAQMDAwQDBAgEBAgQCwkLEBAQEBAQ
@@ -185,4 +173,16 @@ describe('Base64coder', () => {
     E/OFDH6WI0Sf+w6/O9rE2PzxqVX1FznlUOA5Rw6gFC2yugxACkAAkDx1Op1HkgKw1QzEZzKXf5tN
     YsgvTqNJCUjVOLHiCdKAD4J+eiGfy+Tg7SoZKC5JFYIA5R/SvlgPyj6f866nU6gJwgqDUrwz8z0s
     TizVCR+7FyfSL5Oz/bx/89TqdTqrzmo3Rf/Z`.replace(/\s/g, '');
+
+    beforeEach(() => TestBed.configureTestingModule({
+      imports: [HttpClientModule]
+    }));
+
+    it('should be able to encode a given image', () => {
+      const input = toByteArray(base64img);
+      const result = sut.encode(input.buffer);
+
+      expect(result).toBe(base64img);
+
+    });
 });

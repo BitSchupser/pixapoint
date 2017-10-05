@@ -6,7 +6,7 @@ import { environment } from './environments/environment';
 
 // declare var Office: any;
 
-console.info("App started")
+console.info('App started');
 
 if (environment.production) {
   enableProdMode();
@@ -20,11 +20,10 @@ function bootstrap() {
 
 if (typeof Office !== 'undefined') {
   Office.initialize = function () {
-    console.debug("initializing within Office")
+    console.debug('initializing within Office');
     bootstrap();
   };
-}
-else {
-  console.debug("initializing outside of office");
+} else {
+  console.debug('initializing outside of office');
   bootstrap();
 }

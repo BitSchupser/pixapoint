@@ -7,3 +7,10 @@ cache:
 
 before_script:
   - cp src/app/private.config.template.ts src/app/private.config.ts
+
+jobs:
+  include:
+    - stage: lint
+      script: ng lint
+    - stage: test
+      script: npm test

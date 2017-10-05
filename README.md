@@ -7,6 +7,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 # Development
 
+[![Build Status](https://travis-ci.org/BitSchupser/pixapoint.svg?branch=master)](https://travis-ci.org/BitSchupser/pixapoint)
+
 ## Development environment
 
 1. Create a file src/app/private.config.ts with following content:

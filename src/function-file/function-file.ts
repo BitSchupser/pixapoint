@@ -5,7 +5,10 @@
 
 (() => {
   // The initialize function must be run each time a new page is loaded
+  /* tslint:disable */
   let Office: any;
+  /* tslint:enable */
+
   Office.initialize = () => {
 
   };

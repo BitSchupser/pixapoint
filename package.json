@@ -9,7 +9,7 @@
     "copy": "cpx \"src/**/!(*.ts)\" dist --watch",
     "validate": "./node_modules/.bin/validate-office-addin",
     "ng": "ng",
-    "test": "karma start ./karma.conf.js",
+    "test": "karma start ./karma.conf.js --browsers=PhantomJS",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",
     "build": "ng build -prod --no-vendor-chunk --aot --base-href /pixapoint-site/",

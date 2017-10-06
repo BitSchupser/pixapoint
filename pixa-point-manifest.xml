@@ -24,7 +24,7 @@
   <HighResolutionIconUrl DefaultValue="https://bitschupser.github.io/pixapoint-site/assets/hi-res-icon.png"/>
 
   <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
-  <SupportUrl DefaultValue="https://bitschupser.github.io/pixapoint-site"></SupportUrl>
+  <SupportUrl DefaultValue="https://github.com/BitSchupser/pixapoint"></SupportUrl>
 
   <!--End Basic Settings. -->
 

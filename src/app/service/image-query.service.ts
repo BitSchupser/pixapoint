@@ -11,13 +11,24 @@ import { HttpClient, } from '@angular/common/http';
 export class ImageQueryService {
 
   private baseURL = 'https://pixabay.com/api/?key=' + this.config.pixabayApiKey;
+  private queryCache = new Map<string, SearchResultCollection>();
 
   constructor(private config: Config, private http: HttpClient, private base64: Base64coder) { }
 
   search(queryString: string, page: number = 1): Observable<SearchResultCollection> {
     const resultsPerPage = 20;
-    return this.http.get(this.baseURL + '&q="' + queryString + '"&response_group=high_resolution&page=' + page, {responseType: 'json'})
-      .map(result => this.createSearchResults(result, page, resultsPerPage, queryString));
+    const url = this.baseURL + '&q="' + queryString + '"&response_group=high_resolution&page=' + page;
+
+    if (this.queryCache.has(url)) {
+      return Observable.from([this.queryCache.get(url)]);
+    }
+
+    return this.http.get(url, {responseType: 'json'})
+      .map(result => {
+        const searchResults = this.createSearchResults(result, page, resultsPerPage, queryString);
+        this.queryCache.set(url, searchResults);
+        return searchResults;
+      });
   }
 
   getAsBase64(toDownload: SearchResult): Observable<string> {

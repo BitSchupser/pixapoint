@@ -1,10 +1,13 @@
 <app-office-searchbox (performSearch)="search($event)"></app-office-searchbox>
 
-<div *ngIf='searchPerformed'>
+<div *ngIf='isSearching'>
+  <p>Searching...</p>
+</div>
+
+<div *ngIf='!isSearching && searchPerformed'>
   <p class='ms-font-m'>
   Found {{ totalResults }} images on <a href="https://pixabay.com/" target="_blank">Pixabay</a>
   </p>
-
   <div>
     <div *ngFor='let result of searchResults' class='search-result'>
       <app-search-result [model]="result"></app-search-result>
